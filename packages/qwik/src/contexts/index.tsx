@@ -23,7 +23,8 @@ export const ClerkContextProvider = component$((props: {
 
   const state = useSignal<NoSerialize<Resources>>({
     user: clerk.value?.user,
-    client: clerk.value?.client as ClientResource | undefined,
+    // @ts-ignore
+    client: (clerk.value?.client as ClientResource | undefined),
     organization: clerk.value?.organization,
     session: clerk.value?.session,
     lastOrganizationInvitation: null,
