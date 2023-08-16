@@ -1,37 +1,4 @@
-// import { RequestEvent } from "@builder.io/qwik-city";
-// import { RequestState, constants } from "@clerk/backend";
-import type { ActiveSessionResource, InitialState, OrganizationResource, Resources, UserResource } from '@clerk/types';
-import type { MembershipRole } from '@clerk/types';
-
-export function isHttpOrHttps(key: string | undefined) {
-  return /^http(s)?:\/\//.test(key || '');
-}
-
-export function isDevelopmentFromApiKey(apiKey: string): boolean {
-  return apiKey.startsWith('test_') || apiKey.startsWith('sk_test_');
-}
-
-// export const οbservabilityHeadersFromRequestState = (requestState: RequestState, req: RequestEvent): void => {
-//   if (requestState.message) {
-//     req.headers.set(constants.Headers.AuthMessage, requestState.message);
-//   }
-//   if (requestState.reason) {
-//     req.headers.set(constants.Headers.AuthReason, requestState.reason);
-//   }
-//   if (requestState.status) {
-//     req.headers.set(constants.Headers.AuthStatus, requestState.status);
-//   }
-// };
-
-/**
- * Wraps obscured clerk internals with a readable `clerkState` key.
- * This is intended to be passed by the user into <ClerkProvider>
- *
- * @internal
- */
-export const wrapWithClerkState = (data: any) => {
-  return { clerkState: { __internal_clerk_state: { ...data } } };
-};
+import type { ActiveSessionResource, InitialState, MembershipRole, OrganizationResource, Resources, UserResource } from '@clerk/types';
 
 export const deriveState = (clerkLoaded: boolean, state: Resources, initialState: InitialState | undefined) => {
   if (!clerkLoaded && initialState) {
