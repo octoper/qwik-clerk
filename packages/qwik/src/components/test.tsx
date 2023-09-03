@@ -9,8 +9,8 @@ export default component$(() => {
     <div>
       <h1>Sign In</h1>
       <p>{user.value.isSignedIn ? `Hi ${user.value.user?.fullName}` : `Hi Guest`}</p>
-      <button onClick$={() => clerk.value?.openSignIn()}>Sign In</button>
-      <button onClick$={() => clerk.value?.signOut()}>Sign Out</button>
+      <button onClick$={() => clerk.client?.openSignIn()}>Sign In</button>
+      <button onClick$={() => clerk.client?.signOut()}>Sign Out</button>
     </div>
   );
 })
