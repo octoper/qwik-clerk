@@ -9,7 +9,14 @@ export default () => {
         <title>Qwik Blank App</title>
       </head>
       <body>
-        <ClerkContextProvider>
+        <ClerkContextProvider
+          afterSignInUrl="/"
+          appearance={{
+            layout: {
+              privacyPageUrl: '/privacy',
+              helpPageUrl: '/help',
+            }
+          }}>
           <Test></Test>
         </ClerkContextProvider>
       </body>
