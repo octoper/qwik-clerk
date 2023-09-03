@@ -79,8 +79,9 @@ export const ClerkContextProvider = component$<ClerkContextProviderProps>(
               ),
             );
 
-            // eslint-disable-next-line qwik/valid-lexical-scope
-            clerk.client?.load(options).then(() => {
+            clerk.client?.load(
+              options
+            ).then(() => {
               isClerkLoaded.value = true;
 
               clerk.client?.addListener((emission: ClerkResoures) => {

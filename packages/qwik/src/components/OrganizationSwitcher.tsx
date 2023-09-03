@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import { BaseComponent } from "./BaseComponent";
 import { UserProfileProps } from "@clerk/types";
 
-export default component$<UserProfileProps>((props) => {
+export const OrganizationSwitcher = component$<UserProfileProps>((props) => {
   return (
     <>
       <BaseComponent
