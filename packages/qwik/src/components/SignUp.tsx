@@ -1,8 +1,8 @@
 import { component$ } from "@builder.io/qwik";
 import { BaseComponent } from "./BaseComponent";
-import { SignInProps } from "@clerk/types";
+import { SignUpProps } from "@clerk/types";
 
-export default component$<SignInProps>((props) => {
+export default component$<SignUpProps>((props) => {
   return (
     <BaseComponent
       mountFn$={(client, ref) => {

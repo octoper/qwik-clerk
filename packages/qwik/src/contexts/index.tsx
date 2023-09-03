@@ -57,12 +57,7 @@ export const ClerkContextProvider = component$<ClerkContextProviderProps>(
     const clerk = useStore<ClerkStore>({
       client: undefined,
     });
-    const { initialState, publishableKey, ...rest } = props;
-
-    const serializedOptions = noSerialize(rest);
-    const options:
-      | Omit<typeof serializedOptions, "__no_serialize__">
-      | undefined = serializedOptions;
+    const { initialState, publishableKey, ...options } = props;
 
     const client = clerk.client?.client;
     const state = useStore<Resources>({
@@ -84,6 +79,7 @@ export const ClerkContextProvider = component$<ClerkContextProviderProps>(
               ),
             );
 
+            // eslint-disable-next-line qwik/valid-lexical-scope
             clerk.client?.load(options).then(() => {
               isClerkLoaded.value = true;
 

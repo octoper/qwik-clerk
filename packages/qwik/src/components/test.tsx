@@ -1,7 +1,8 @@
 import { component$ } from "@builder.io/qwik";
 import { useClerk, useUser } from "../hooks";
+import UserProfile from "./UserProfile";
+import OrganizationSwitcher from "./OrganizationSwitcher";
 import SignIn from "./SignIn";
-import SignUp from "./SignUp";
 
 export default component$(() => {
   const clerk = useClerk();
@@ -15,22 +16,8 @@ export default component$(() => {
       </p>
       <button onClick$={() => clerk.client?.openSignIn()}>Sign In</button>
       <button onClick$={() => clerk.client?.signOut()}>Sign Out</button>
-      <SignIn
-        appearance={{
-          layout: {
-            privacyPageUrl: "/privacy",
-            termsPageUrl: "/terms",
-          },
-        }}
-      />
-      <SignUp
-        appearance={{
-          layout: {
-            privacyPageUrl: "/privacy",
-            termsPageUrl: "/terms",
-          },
-        }}
-      />
+      {/* <OrganizationSwitcher></OrganizationSwitcher> */}
+      <SignIn/>
     </div>
   );
 });

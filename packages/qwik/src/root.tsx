@@ -10,7 +10,6 @@ export default () => {
       </head>
       <body>
         <ClerkContextProvider
-          afterSignInUrl="/"
           appearance={{
             layout: {
               privacyPageUrl: '/privacy',

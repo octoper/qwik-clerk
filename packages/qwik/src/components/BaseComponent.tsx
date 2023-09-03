@@ -22,7 +22,9 @@ export const BaseComponent = component$<ComponentProps>(({
     }
 
     cleanup(async () => {
-      unmountFn$(clerk.client as Clerk, elementRef.value)
+      if (isLoaded && clerk.client && elementRef.value) {
+        unmountFn$(clerk.client as Clerk, elementRef.value)
+      }
     })
   })
 
